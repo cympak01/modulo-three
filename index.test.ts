@@ -18,7 +18,7 @@ describe('Assessment', () => {
 			expect(FA.transitionMap).toStrictEqual(new Map());
 		});
 
-		test('Should handle creation with partial provided parameters', () => {
+		test('Should handle creation with partially provided parameters', () => {
 			const states = new Set([State.S0, State.S1]);
 			const alphabet = new Set<Alphabet>(['1']);
 			const finalStates = new Set([State.S1, State.S2]);
@@ -36,7 +36,7 @@ describe('Assessment', () => {
 			expect(_FA.transitionMap).toStrictEqual(new Map());
 		});
 
-		test('Should handle adding parameters after initialization', () => {
+		test('Should handle setting/adding values after initialization', () => {
 			FA.addStateItem(State.S0);
 			FA.addStateItem(State.S1);
 			expect(FA.states).toStrictEqual(new Set([State.S0, State.S1]));
@@ -44,7 +44,7 @@ describe('Assessment', () => {
 			FA.addAlphabetItem('0');
 			expect(FA.alphabet).toStrictEqual(new Set(['0']));
 
-			FA.setInitialState(State.S2);
+			FA.initialState = State.S2;
 			expect(FA.initialState).toBe(State.S2);
 
 			FA.addFinalStateItem(State.S2);

@@ -9,7 +9,7 @@ export type Alphabet = '0' | '1';
 
 // FiniteAutomation usage demonstration
 const moduloThreeFSM = (input: string): number => {
-	// Initialization the values. Data can be not fully provided
+	// Initialization the values. Data may not be provided in full
 	const states = new Set([State.S0, State.S1]);
 	const alphabet = new Set<Alphabet>(['1']);
 	const finalStates = new Set([State.S1, State.S2]);
@@ -28,7 +28,7 @@ const moduloThreeFSM = (input: string): number => {
 	// Adding/modifying data after creation
 	fsm.addStateItem(State.S2);
 	fsm.addAlphabetItem('0');
-	fsm.setInitialState(State.S0);
+	fsm.initialState = State.S0;
 	fsm.addFinalStateItem(State.S0);
 	fsm.addTransitionItem(State.S0, '1', State.S1);
 	fsm.addTransitionItem(State.S1, '0', State.S2);
